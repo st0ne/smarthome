@@ -62,7 +62,7 @@ class Volkszaehler():
 
         url = '/middleware.php/data' + '/' + vz_uuid + '.json'
 
-        logger.info('Volkszaehler Plugin sent to ' + _host + ' (UUID: ' + vz_uuid + ')')
+        logger.info('Volkszaehler Plugin sent to ' + self._host + ' (UUID: ' + vz_uuid + ')')
 
         data = {}
         headers = {'User-Agent': "SmartHome.py", 'Content-Type': "application/x-www-form-urlencoded"}
@@ -77,4 +77,4 @@ class Volkszaehler():
             if resp.status != 200:
                 raise Exception("{} {}".format(resp.status, resp.reason))
         except Exception as e:
-            logger.warning("Could not send to " + _host + ": {0}. Error: {1}".format(event, e))
+            logger.warning("Could not send to " + self._host + ": {0}. Error: {1}".format(event, e))
